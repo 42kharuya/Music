@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let soundPlayer = SoundPlayer()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack{
+            Image("background")
+                .backgroundModifier()
+            HStack{
+                Button(action: {
+                    soundPlayer.cymbalPlay()
+                }, label: {
+                    Image("cymbal")
+                })
+                Button(action: {
+                    soundPlayer.guitarPlay()
+                }, label: {
+                    Image("guitar")
+                })
+            }
         }
-        .padding()
     }
 }
 
